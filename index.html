@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login - Entrar no site</title>
+	<meta charset="utf-8">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+		body, html{
+			height: 100%;
+			margin: 0px;
+		}
+		#bg{
+			width: 100%;
+			background-image: url('estrelas.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+		} 
+		#tela{
+			background-color: rgba(255, 255, 255, 0.4);
+			display: flex;
+			width: 60%;
+			height: 350px;
+			margin-left: 20%;
+			margin-top: 10%;
+			flex-direction: column;
+			border-radius: 22px;
+			color: black;
+			font-family: 'RocknRoll One', sans-serif;
+		}
+		#login{
+			width: 100%;
+			text-align: center;
+			order: 1;
+			margin-top: 5%;
+			font-weight: bold;
+			font-size: 22px;
+
+		}
+		#senha{
+			width: 100%;
+			text-align: center;
+			order: 2;
+			margin-top: 5%;
+			font-weight: bold;
+			font-size: 22px;
+		}
+		#user{
+			border-radius: 25px;
+			font-size: 25px;
+			width: 60%;
+		}
+		#pass{
+			border-radius: 25px;
+			font-size: 25px;
+			width: 60%;
+		}
+		h2{
+			text-align: center;
+			margin-top: 5%;
+		}
+		#btn{
+			order: 3;
+			width: 80%;
+			margin-left: 10%;
+			margin-top: 5%;
+			height: 50px;
+			font-size: 25px;
+			font-family: 'RocknRoll One', sans-serif;
+			background-color: #808080;
+			border-radius: 50px 20px;
+		}
+		#nome{
+			padding-top: 5%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body id="bg">
+	<div id="tela">
+		<h2>Sign in</h2>
+		<form>
+			<div id="login">
+				<label>Email: </label>
+				<input id="user" type="text" name="email" placeholder="Usuário">
+			</div>		
+			<div id="senha">
+				<label>Senha: </label>
+				<input id="pass" type="password" name="senha" placeholder="Senha">
+			</div>
+			<input id="btn" type="submit" name="login" value="LOGIN" onclick="entrar()">
+
+			<div id="nome">&copy; Luiz Eduardo de Lima</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		var email, senha;
+		function entrar(){
+			email = document.getElementById('user');
+			senha = document.getElementById('pass');
+			alert('Email: '+ email.value + ' | senha: ' +senha.value);
+		}	
+	</script>
+</body>
+</html>
