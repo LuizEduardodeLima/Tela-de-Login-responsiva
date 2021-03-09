@@ -14,7 +14,7 @@
 		}
 		#bg{
 			width: 100%;
-			background-image: url('estrelas.jpg');
+			background-image: url('imagens/estrelas.jpg');
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
@@ -24,7 +24,7 @@
 			background-color: rgba(255, 255, 255, 0.4);
 			display: flex;
 			width: 60%;
-			height: 350px;
+			height: 450px;
 			margin-left: 20%;
 			margin-top: 10%;
 			flex-direction: column;
@@ -59,7 +59,7 @@
 			font-size: 25px;
 			width: 60%;
 		}
-		h2{
+		h2, h4{
 			text-align: center;
 			margin-top: 5%;
 		}
@@ -78,33 +78,73 @@
 			padding-top: 5%;
 			text-align: center;
 		}
+		#info{
+			width: 100%;
+			height: 150px;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
+		#info_user{
+			text-align: center;
+			font-size: 20px;
+			color: white;
+			margin-top: 20px;
+			padding-top: 20px;
+		}
+		#info_pass{
+			text-align: center;
+			font-size: 20px;
+			color: white;
+		}
+		/*Quando a tela do dispositivo chegar tiver no maximo 1000px de largura, a div que contém o login fica mais ou menos na metade da tela*/
+		@media screen and (max-width: 1000px){
+			#tela{
+				margin-top: 40%;
+			}
+		}
 	</style>
 </head>
 <body id="bg">
 	<div id="tela">
 		<h2>Sign in</h2>
-		<form>
+		<h4>(Digite um e-mail e uma senha qualquer e aperte login)</h4>
+		<div>
 			<div id="login">
 				<label>Email: </label>
-				<input id="user" type="text" name="email" placeholder="Usuário" required="required">
+				<input id="user" type="text" name="email" placeholder="Usuário">
 			</div>		
 			<div id="senha">
 				<label>Senha: </label>
-				<input id="pass" type="password" name="senha" placeholder="Senha" required="required">
+				<input id="pass" type="password" name="senha" placeholder="Senha">
 			</div>
-			<input id="btn" type="submit" name="login" value="LOGIN" onclick="entrar()">
+			<input id="btn" type="submit" name="login" value="LOGIN">
 
 			<div id="nome">&copy; Luiz Eduardo de Lima</div>
-		</form>
+		
+			<div id="info">
+				<h4 id="info_user"></h4>
+				<h4 id="info_pass"></h4>
+			</div>
+		</div>
 	</div>
 
+	<script type="text/javascript" src="jquery/jquery.js"></script>
+
 	<script type="text/javascript">
-		var email, senha;
-		function entrar(){
-			email = document.getElementById('user');
-			senha = document.getElementById('pass');
-			alert('Email: '+ email.value + ' | senha: ' +senha.value);
-		}	
+		
+		$('#btn').click(function(){
+
+			var user = $('#user').val();
+			var password = $('#pass').val();
+			var elemento = $('#info');
+			var tempo;
+
+			$('#info_user').text('E-mail digitado: ' + user);
+			$('#info_pass').text('Senha digitada: ' + password);
+
+			elemento.css('display', 'block');
+
+		});
 	</script>
 </body>
 </html>
